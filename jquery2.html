@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Paragraphs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa; /* Warna biru muda */
+        }
+        .hidden-paragraphs {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .visible-paragraphs {
+            display: block;
+            opacity: 1;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .button {
+            background-color: #4fc3f7; /* Warna biru muda */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #29b6f6; /* Warna biru lebih gelap saat hover */
+        }
+        .sticker {
+            width: 50px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="container max-w-2xl w-full">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">SMK BHINUSKU</h1>
+        
+        <div class="flex justify-center mb-8">
+            <button id="toggleBtn" class="button">
+              MENUNJUKKAN
+            </button>
+        </div>
+        
+        <div id="paragraphsContainer" class="hidden-paragraphs space-y-4">
+            <p class="text-gray-700 leading-relaxed">
+                SMK Bhinus dioperasikan pada tahun 2006. SMK ini merupakan transformasi Sekolah Farming Menengah Atas (SFMA). Namun karena minat peserta didik tentang pertanian pada saat itu menurun dan minat tentang teknologi informasi seperti komputer, internet dan perangkat bergerak naik, maka oleh Yayasan Krida Tani Membangun sebagai pemilik membuka SMK yang berorientasi pada teknologi informasi yaitu SMK Bhakti Nusantara atau oleh masyarakat sekitar dikenal SMK Bhinus.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+                Terdapat 3 jurusan komputer di SMK Bhinus yaitu Teknik Komputer dan Jaringan (TKJ), Rekayasa Perangkat Lunak (RPL), dan Multi Media (MM). Kami merupakan satu-satunya SMK di kabupaten Kendal yang secara lengkap dan serius untuk membentuk peserta didik yang beriman dan unggul di bidang teknologi khususnya informasi sehingga peserta didik yang lulus siap bekerja. Lomba Kompetensi Siswa mata lomba Networking Support merupakan bukti bahwa SMK Bhinus unggul di bidang computer. Hampir tiap tahun kami selalu berlangganan juara di tingkat kabupaten Kendal.
+            </p>
+        </div>
+        
+        <img src="logo smkbhinus.jpg" alt="Sticker Lucu" class="sticker"> <!-- Ganti dengan URL stiker lucu yang diinginkan -->
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const paragraphsContainer = document.getElementById('paragraphsContainer');
+        let isVisible = false;
+
+        toggleBtn.addEventListener('click', function() {
+            isVisible = !isVisible;
+            
+            if(isVisible) {
+                paragraphsContainer.classList.remove('hidden-paragraphs');
+                paragraphsContainer.classList.add('visible-paragraphs');
+                toggleBtn.textContent = 'MENYEMBUNYIKAN';
+            } else {
+                paragraphsContainer.classList.remove('visible-paragraphs');
+                paragraphsContainer.classList.add('hidden-paragraphs');
+                toggleBtn.textContent = 'MENUNJUKKAN';
+            }
+        });
+    </script>
+</body>
+</html>
